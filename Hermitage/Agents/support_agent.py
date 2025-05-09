@@ -1,12 +1,14 @@
 from agents import Agent, function_tool
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, OpenAI
 from langchain.chains import RetrievalQA
-from langchain.llms import OpenAI
-from typing import List
 
 # Cargar vectorstore y configurar cadena QA
-vectorstore = FAISS.load_local("Hermitage/vectorstore", OpenAIEmbeddings(), allow_dangerous_deserialization=True)
+vectorstore = FAISS.load_local(
+    "vectorstore",
+    OpenAIEmbeddings(),
+    allow_dangerous_deserialization=True  # Asegúrate de validar que el contenido es seguro
+)
 retriever = vectorstore.as_retriever()
 
 qa_chain = RetrievalQA.from_chain_type(

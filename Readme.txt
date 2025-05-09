@@ -1,61 +1,39 @@
-# 🧠 Hermitage AI Agent System
+# 🧠 Hermitage AI Assistant
 
-Sistema modular de agentes de inteligencia artificial diseñado para asistir al equipo de Hermitage Agency en tareas de contenido, soporte y automatización.
+Asistente inteligente modular para Hermitage Agency.  
+Este sistema orquesta múltiples agentes especializados para asistir en:
 
----
+- 📄 Soporte interno basado en documentación (FAQs, políticas, etc.)
+- ✨ Generación creativa de contenido para redes y campañas
+- 🔁 Automatización de tareas repetitivas
+- 📊 Análisis de datos para campañas y redes sociales *(en desarrollo)*
 
-## 🗂 Estructura del proyecto
+## 📁 Estructura del proyecto
 
-ai_marketing_agent/
-├── Hermitage/
-│ ├── Agents/ # Lógica de agentes específicos
-│ ├── Tools/ # Herramientas utilizadas por los agentes
-│ ├── utils/ # Análisis, carga de documentos y logs
-│ ├── logs/ # Registros de interacciones por fecha
-│ ├── vectorstore/ # Embeddings generados con FAISS
-│ ├── main.py # Entrada principal para ejecutar agentes
-│ ├── dashboard.py # Dashboard con Streamlit
-│ └── analyze_logs.py # Analizador y exportador de logs
-├── .env # Variables de entorno (no compartir)
-├── requirements.txt # Dependencias del proyecto
-├── start_hermitage.bat # Lanzador con menú interactivo
-└── venv/ # Entorno virtual local
+Hermitage/
+│
+├── Agents/
+│ ├── support_agent.py
+│ ├── content_generator.py
+│ ├── automatizer_agent.py
+│ ├── data_analyzer.py # (por construir)
+│ └── main_agent.py
+│
+├── utils/
+│ ├── logger.py
+│ └── load_documents.py
+│
+├── vectorstore/ # Base de conocimiento embebida
+├── logs/ # Logs de uso del sistema
+├── main.py # Punto de entrada para pruebas
+└── .env # Variables sensibles (NO incluir en Git)
 
 
----
+## 🚀 Ejecución
+python -m Hermitage.main
 
-## 🚀 Funcionalidades
+## Requisitos:
+pip install -r requirements.txt
 
-- **Agentes inteligentes**: delegación dinámica según tipo de solicitud.
-- **Soporte basado en documentos internos**: RAG con embeddings de FAISS.
-- **Generación y análisis de contenido**.
-- **Dashboard interactivo con métricas por agente**.
-- **Análisis y exportación de logs diarios a CSV**.
-- **Menú por terminal para facilitar pruebas y flujo de trabajo**.
-
----
-
-## 🧪 ¿Cómo iniciar?
-
-1. Clona el repositorio:
-   ```bash
-   git clone <repo-url>
-   cd ai_marketing_agent
-
-2. Crea y activa entorno virtual:
-    python -m venv venv
-    .\venv\Scripts\activate
-
-3. Instala las dependencias:
-    pip install -r requirements.txt
-
-4.Ejecuta el menú interactivo:
-   start_hermitage.bat
-
-⚙️ Requisitos
-Python 3.10+
-
-API Key de OpenAI válida (.env)
-
-Windows (recomendado por el uso del .bat)
-
+##🛡️ Seguridad:
+Configura tu clave OpenAI en el archivo .env:
