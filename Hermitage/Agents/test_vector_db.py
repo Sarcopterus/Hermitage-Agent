@@ -1,5 +1,7 @@
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings, OpenAI
+from Hermitage.core.config import get_llm_instance
+llm = get_llm_instance()
+
 
 # Cargar vectorstore
 vectorstore = FAISS.load_local("Hermitage/vectorstore", OpenAIEmbeddings(), allow_dangerous_deserialization=True)
