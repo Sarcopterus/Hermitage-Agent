@@ -1,9 +1,27 @@
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
 from rich import print
 from Hermitage.utils.herramientas_agenda import agendar_reserva
 from Hermitage.utils.servicios_catalogo import SERVICIOS_CATALOGO
 from Hermitage.agents.agenda_db import init_db
+
+def menu_admin():
+    while True:
+        print("\n[Admin] Opciones:")
+        print("1. Listar reservas")
+        print("2. Cancelar reserva")
+        print("3. Volver")
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            from Hermitage.utils.herramientas_agenda import mostrar_reservas
+            mostrar_reservas()
+        elif opcion == "2":
+            from Hermitage.utils.herramientas_agenda import cancelar_reserva_cli
+            cancelar_reserva_cli()
+        elif opcion == "3":
+            break
+        else:
+            print("Opción inválida.")
 
 def main():
     init_db()
@@ -29,34 +47,15 @@ def main():
     print("Escribe tu solicitud:")
 
     while True:
-    mensaje = input("Tú: ")
-    if mensaje.lower() in ['salir', 'exit', 'quit']:
-        print("¡Hasta pronto!")
-        break
-    if mensaje.lower() in ['admin', 'menu', 'reservas']:
-        menu_admin()
-        continue
-    respuesta = agente.run(mensaje)
-    print("🤖:", respuesta)
-
+        mensaje = input("Tú: ")
+        if mensaje.lower() in ['salir', 'exit', 'quit']:
+            print("¡Hasta pronto!")
+            break
+        if mensaje.lower() in ['admin', 'menu', 'reservas']:
+            menu_admin()
+            continue
+        respuesta = agente.run(mensaje)
+        print("🤖:", respuesta)
 
 if __name__ == "__main__":
     main()
-
-def menu_admin():
-    while True:
-        print("\n[Admin] Opciones:")
-        print("1. Listar reservas")
-        print("2. Cancelar reserva")
-        print("3. Volver")
-        opcion = input("Elige una opción: ")
-        if opcion == "1":
-            from Hermitage.utils.herramientas_agenda import mostrar_reservas
-            mostrar_reservas()
-        elif opcion == "2":
-            from Hermitage.utils.herramientas_agenda import cancelar_reserva_cli
-            cancelar_reserva_cli()
-        elif opcion == "3":
-            break
-        else:
-            print("Opción inválida.")
