@@ -1,8 +1,8 @@
 import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
-from herramientas_agenda import agendar_reserva
-from agenda_db import init_db
+from Hermitage.utils.herramientas_agenda import agendar_reserva
+from Hermitage.utils.agenda_db import init_db
 
 init_db()
 

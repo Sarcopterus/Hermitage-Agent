@@ -1,67 +1,45 @@
-# 🤖 Hermitage AI Agent Suite
+# 🤖 Hermitage Agent Suite
 
-Este repositorio contiene una suite de agentes inteligentes diseñados para **Hermitage Agency**, cada uno con funciones especializadas para asistir en tareas empresariales, automatización y generación de contenido.
-
----
-
-## 📦 Estructura del Proyecto
-
-ChatGPT dijo:
-Perfecto. Aquí tienes un README.md inicial completo, listo para copiar y guardar en la raíz del proyecto:
-
-markdown
-Copiar
-Editar
-# 🤖 Hermitage AI Agent Suite
-
-Este repositorio contiene una suite de agentes inteligentes diseñados para **Hermitage Agency**, cada uno con funciones especializadas para asistir en tareas empresariales, automatización y generación de contenido.
+Bienvenido a **Hermitage Agent Suite**: una plataforma modular de agentes inteligentes diseñada para potenciar, automatizar y escalar los procesos internos de **Hermitage Agency**. Desarrollada en Python y lista para integrar IA avanzada, automatización, análisis de datos y flujos de reserva de espacios.
 
 ---
 
 ## 📦 Estructura del Proyecto
 
-Hermitage/
-├── Agents/
-│ ├── main_agent.py
-│ ├── support_agent.py
-│ ├── content_generator.py
-│ ├── automatizer_agent.py
-│ └── data_analyzer.py (en progreso)
-├── utils/
-│ └── logger.py
-├── main.py
-├── test_vector_db.py
-├── build_vector_db.py
-└── requirements.txt
+```plaintext
+Hermitage-Agent/
+├── Hermitage/
+│   ├── agents/
+│   │   ├── main_agent.py
+│   │   ├── support_agent.py
+│   │   ├── content_generator.py
+│   │   ├── automatizer_agent.py
+│   │   ├── data_analyzer.py
+│   │   ├── strategy_agent.py
+│   │   ├── chatbot_agenda.py
+│   ├── core/
+│   │   └── config.py
+│   ├── utils/
+│   │   ├── agenda_db.py
+│   │   ├── herramientas_agenda.py
+│   │   ├── logger.py
+│   ├── main.py
+│   ├── dashboard.py
+├── requirements.txt
+├── README.md
 
 
----
+🧠 Agentes Disponibles
+Agente de Soporte: Responde preguntas usando la documentación interna.
 
-## 🧠 Agentes Incluidos
+Generador de Contenido: Crea posts, copys y campañas creativas.
 
-- `agente_soporte`: Responde preguntas internas usando documentación.
-- `agente_contenido`: Genera posts, copys y nombres creativos para marketing.
-- `agente_automatizador`: Diseñado para automatizar tareas repetitivas.
-- `agente_analisis`: Analizará datos (en desarrollo).
-- `agente_principal`: El coordinador que delega la tarea al agente correcto.
+Agente Automatizador: Ejecuta tareas repetitivas y gestiona flujos automáticos.
 
----
+Data Analyzer: Analiza datos empresariales (en desarrollo).
 
-## 🚀 Cómo ejecutar
+Estratega: Planificación competitiva y análisis de negocio.
 
-1. Clona el repositorio:
-   git clone https://github.com/Sarcopterus/Hermitage-Agent.git
-   cd Hermitage-Agent
+Agente Principal: Coordina y delega a los agentes adecuados.
 
-2. Crea el entorno virtual y actívalo:
-    python -m venv venv
-    venv\Scripts\activate  # Windows 
-    
-3. Instala dependencias:
-   pip install -r requirements.txt
-
-4. Agrega tu .env con tu clave OpenAI:
-
-5. Ejecuta el agente principal:
-   python -m Hermitage.main
-
+Chatbot de Agenda: Permite agendar espacios (Podcast, Live Stream, Fotografía, etc.) vía CLI.

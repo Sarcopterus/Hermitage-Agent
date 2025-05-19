@@ -1,8 +1,6 @@
 import re
 from datetime import datetime, timedelta
-from .agenda_db import disponible, reservar
-
-
+from Hermitage.utils.agenda_db import disponible, reservar
 
 
 def interpretar_fecha(texto):
@@ -33,7 +31,7 @@ def interpretar_hora(texto):
         return f"{hora:02d}:00"
     return None
 
-def agendar_reserva(query):
+def agendar_reserva(query, tipo_servicio="Coworking"):
     usuario = "Invitado"
     match_nombre = re.search(r'para (\w+)', query.lower())
     if match_nombre:
@@ -43,10 +41,9 @@ def agendar_reserva(query):
     hora = interpretar_hora(query)
 
     if not fecha or not hora:
-        return ("Por favor, indica la **fecha** y la **hora** de forma clara. "
-                "Ejemplo: 'Reservar para Miguel el 20/05/2025 a las 10:00'.")
+        return (f"Por favor, indica la **fecha** y la **hora** de forma clara. "
+                f"Ejemplo: 'Reservar {tipo_servicio} para Miguel el 20/05/2025 a las 10:00'.")
 
-    # Validación de fecha pasada
     try:
         fecha_dt = datetime.strptime(fecha, "%d/%m/%Y")
         if fecha_dt < datetime.now():
@@ -55,7 +52,7 @@ def agendar_reserva(query):
         return "Formato de fecha incorrecto."
 
     if disponible(fecha, hora):
-        reservar(usuario, fecha, hora)
-        return f"¡Reserva confirmada para {usuario} el {fecha} a las {hora}!"
+        reservar(usuario, fecha, hora)  # Agrega tipo_servicio si lo manejas en tu DB
+        return f"¡Reserva confirmada para {usuario} en el set {tipo_servicio} el {fecha} a las {hora}!"
     else:
         return f"Lo siento, ese horario ya está reservado. ¿Te gustaría probar otra hora?"
