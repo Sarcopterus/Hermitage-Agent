@@ -3,9 +3,6 @@ Bienvenido a Hermitage Agent Suite: una plataforma modular de agentes inteligent
 Desarrollada en Python, integra IA avanzada, automatización, análisis de datos y un sistema robusto de reservas de espacios.
 
 📦 Estructura del Proyecto
-plaintext
-Copiar
-Editar
 Hermitage-Agent/
 ├── Hermitage/
 │   ├── agents/
@@ -29,6 +26,8 @@ Hermitage-Agent/
 │   ├── dashboard.py
 ├── requirements.txt
 ├── README.md
+
+
 🧠 Agentes Disponibles
 Agente Principal: Orquesta y delega tareas a los agentes según la consulta.
 
