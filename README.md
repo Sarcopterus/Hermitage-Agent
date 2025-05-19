@@ -7,6 +7,7 @@ Desarrollada en Python, integra IA avanzada, automatización, análisis de datos
 
 
 🧠 Agentes Disponibles
+
 Agente Principal: Orquesta y delega tareas a los agentes según la consulta.
 
 Agente de Soporte: Responde dudas institucionales usando la documentación interna (vectorstore/FAISS + LLM).
@@ -21,43 +22,30 @@ Estratega: Estrategias de negocio y análisis competitivo.
 
 Chatbot de Agenda: Agenda espacios de la agencia (Podcast, Live Stream, Fotografía) vía CLI o API.
 
+
+
 🚀 Instalación y Primeros Pasos
 1. Clonar el repositorio
-bash
-Copiar
-Editar
 git clone https://github.com/Sarcopterus/Hermitage-Agent.git
 cd Hermitage-Agent
+
 2. Configurar entorno Python
 Instala pyenv y crea un entorno virtual con Python 3.11.9:
-
-bash
-Copiar
-Editar
 pyenv install 3.11.9
 pyenv virtualenv 3.11.9 hermitage-env
 pyenv activate hermitage-env
+
 3. Instalar dependencias
-bash
-Copiar
-Editar
 pip install -r requirements.txt
+
 4. Configurar variables de entorno
 Copia el archivo de ejemplo y añade tu API Key real de OpenAI:
-
-bash
-Copiar
-Editar
 cp Hermitage/core/.env.example Hermitage/core/.env
 ¡No subas nunca tu .env!
 (Verifica que .gitignore lo proteja).
 
 💻 Uso del Chatbot de Agenda (CLI)
 Desde consola, ejecuta:
-
-bash
-Copiar
-Editar
 python -m Hermitage.agents.chatbot_agenda
 Sigue las instrucciones para agendar espacios (servicios activos: Podcast, Live Stream, Fotografía).
 También puedes acceder a funciones administrativas (listar, cancelar reservas) escribiendo admin o reservas en el chat.
@@ -66,9 +54,6 @@ También puedes acceder a funciones administrativas (listar, cancelar reservas) 
 Permite integrar la agenda con aplicaciones web, móviles, bots o dashboards.
 
 Correr el API
-bash
-Copiar
-Editar
 uvicorn Hermitage.api.agenda_api:app --reload
 Visita http://127.0.0.1:8000/docs para probar los endpoints en Swagger UI.
 
@@ -126,16 +111,13 @@ dotenv, rich, FAISS, etc.
 📚 Ejemplos de uso
 CLI
 less
-Copiar
-Editar
 Tú: Quiero reservar el set de podcast para María el viernes a las 16:00
 🤖: ✅ ¡Reserva confirmada! ...
 API (con curl)
-bash
-Copiar
-Editar
 curl -X POST "http://127.0.0.1:8000/reservar/" \
   -d "usuario=María" -d "fecha=14/06/2024" -d "hora=16:00" -d "tipo_servicio=Podcast"
+
+
 📑 Licencia
 Proyecto privado, uso interno Hermitage Agency.
 Contáctanos para permisos de uso o contribución externa.
