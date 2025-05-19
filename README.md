@@ -3,29 +3,7 @@ Bienvenido a Hermitage Agent Suite: una plataforma modular de agentes inteligent
 Desarrollada en Python, integra IA avanzada, automatización, análisis de datos y un sistema robusto de reservas de espacios.
 
 📦 Estructura del Proyecto
-Hermitage-Agent/
-├── Hermitage/
-│   ├── agents/
-│   │   ├── main_agent.py
-│   │   ├── support_agent.py
-│   │   ├── content_generator.py
-│   │   ├── automatizer_agent.py
-│   │   ├── data_analyzer.py
-│   │   ├── strategy_agent.py
-│   │   ├── chatbot_agenda.py
-│   ├── core/
-│   │   └── config.py
-│   ├── utils/
-│   │   ├── agenda_db.py
-│   │   ├── herramientas_agenda.py
-│   │   ├── servicios_catalogo.py
-│   │   ├── logger.py
-│   ├── api/
-│   │   └── agenda_api.py
-│   ├── main.py
-│   ├── dashboard.py
-├── requirements.txt
-├── README.md
+<pre> <code> Hermitage-Agent/ ├── Hermitage/ │ ├── agents/ │ │ ├── main_agent.py │ │ ├── support_agent.py │ │ ├── content_generator.py │ │ ├── automatizer_agent.py │ │ ├── data_analyzer.py │ │ ├── strategy_agent.py │ │ ├── chatbot_agenda.py │ ├── core/ │ │ └── config.py │ ├── utils/ │ │ ├── agenda_db.py │ │ ├── herramientas_agenda.py │ │ ├── servicios_catalogo.py │ │ ├── logger.py │ ├── api/ │ │ └── agenda_api.py │ ├── main.py │ ├── dashboard.py ├── requirements.txt ├── README.md </code> </pre>
 
 
 🧠 Agentes Disponibles
