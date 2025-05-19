@@ -1,9 +1,9 @@
 from Hermitage.agents import Agent
-from Hermitage.Agents.support_agent import agente_soporte
-from Hermitage.Agents.content_generator import agente_contenido
-from Hermitage.Agents.automatizer_agent import agente_automatizador
-from Hermitage.Agents.data_analyzer import agente_analisis
-from Hermitage.Agents.strategy_agent import agente_estratega 
+from Hermitage.agents.support_agent import agente_soporte
+from Hermitage.agents.content_generator import agente_contenido
+from Hermitage.agents.automatizer_agent import agente_automatizador
+from Hermitage.agents.data_analyzer import agente_analisis
+from Hermitage.agents.strategy_agent import agente_estratega 
 
 # Crear el agente principal
 agente_principal = Agent(
