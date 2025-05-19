@@ -1,4 +1,6 @@
 from typing import List, Callable
+from dotenv import load_dotenv
+load_dotenv()
 
 def function_tool(func):
     """Decorador dummy, para que compile el código. Puedes expandirlo luego."""

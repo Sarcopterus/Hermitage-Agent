@@ -1,4 +1,6 @@
 import sqlite3
+from dotenv import load_dotenv
+load_dotenv()
 
 def init_db():
     conn = sqlite3.connect("agenda.db")

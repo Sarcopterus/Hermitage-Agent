@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from Hermitage.agents import Agent, function_tool
 from Hermitage.tools.shared_tools.strategic_analysis_tools import (
     analizar_competencia,

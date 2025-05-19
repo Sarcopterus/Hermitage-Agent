@@ -4,6 +4,9 @@ from Hermitage.agents.content_generator import agente_contenido
 from Hermitage.agents.automatizer_agent import agente_automatizador
 from Hermitage.agents.data_analyzer import agente_analisis
 from Hermitage.agents.strategy_agent import agente_estratega 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Crear el agente principal
 agente_principal = Agent(

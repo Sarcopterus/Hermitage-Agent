@@ -4,6 +4,9 @@ from rich import print
 from Hermitage.utils.herramientas_agenda import agendar_reserva
 from Hermitage.utils.servicios_catalogo import SERVICIOS_CATALOGO
 from Hermitage.agents.agenda_db import init_db
+from dotenv import load_dotenv
+load_dotenv()
+
 
 def menu_admin():
     while True:

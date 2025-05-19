@@ -5,6 +5,8 @@ from langchain_core.runnables import RunnableLambda
 from langchain_core.documents import Document
 from Hermitage.core.config import get_llm_instance, get_embeddings_instance, VECTORSTORE_PATH
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Instancias centralizadas
 llm = get_llm_instance()

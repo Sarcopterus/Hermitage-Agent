@@ -1,5 +1,8 @@
 from Hermitage.agents import Agent, function_tool
 from Hermitage.core.config import get_llm_instance
+from dotenv import load_dotenv
+load_dotenv()
+
 
 llm = get_llm_instance()
 

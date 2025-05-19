@@ -1,6 +1,8 @@
 from langchain_community.vectorstores import FAISS
 from Hermitage.core.config import get_llm_instance
 llm = get_llm_instance()
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Cargar vectorstore
