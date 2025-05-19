@@ -5,7 +5,15 @@ from Hermitage.utils.herramientas_agenda import agendar_reserva
 from Hermitage.utils.servicios_catalogo import SERVICIOS_CATALOGO
 from Hermitage.agents.agenda_db import init_db
 from dotenv import load_dotenv
-load_dotenv()
+import os
+
+# Fuerza a buscar el .env donde está este script o en el root del repo
+dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env')
+load_dotenv(dotenv_path=dotenv_path)
+
+# Debug temporal:
+print("DEBUG: OPENAI_API_KEY =", os.environ.get("OPENAI_API_KEY"))
+
 
 
 def menu_admin():
