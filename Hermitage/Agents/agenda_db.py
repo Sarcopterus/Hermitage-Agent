@@ -41,3 +41,27 @@ def reservar(usuario, fecha, hora, tipo_servicio):
     conn.close()
     return True
 
+def listar_reservas(usuario=None, tipo_servicio=None):
+    conn = sqlite3.connect("agenda.db")
+    c = conn.cursor()
+    query = "SELECT id, usuario, fecha, hora, tipo_servicio FROM reservas WHERE 1=1"
+    params = []
+    if usuario:
+        query += " AND usuario=?"
+        params.append(usuario)
+    if tipo_servicio:
+        query += " AND tipo_servicio=?"
+        params.append(tipo_servicio)
+    c.execute(query, params)
+    rows = c.fetchall()
+    conn.close()
+    return rows
+
+def cancelar_reserva(reserva_id):
+    conn = sqlite3.connect("agenda.db")
+    c = conn.cursor()
+    c.execute("DELETE FROM reservas WHERE id=?", (reserva_id,))
+    conn.commit()
+    conn.close()
+    return True
+

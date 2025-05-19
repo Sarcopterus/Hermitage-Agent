@@ -2,27 +2,18 @@ from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
 from rich import print
 from Hermitage.utils.herramientas_agenda import agendar_reserva
+from Hermitage.utils.servicios_catalogo import SERVICIOS_CATALOGO
 from Hermitage.agents.agenda_db import init_db
 
 def main():
     init_db()
     herramientas = [
-    Tool(
-        name="Agendar Live Stream",
-        func=lambda query: agendar_reserva(query, tipo_servicio="Live Stream"),
-        description="Agenda el Set Live Stream (COP $200,000 por 2h). Pide nombre, fecha (dd/mm/aaaa) y hora (hh:mm)."
-    ),
-    Tool(
-        name="Agendar Podcast",
-        func=lambda query: agendar_reserva(query, tipo_servicio="Podcast"),
-        description="Agenda el Set de Podcast (COP $400,000 por 2h). Pide nombre, fecha (dd/mm/aaaa) y hora (hh:mm)."
-    ),
-    Tool(
-        name="Agendar Fotografía",
-        func=lambda query: agendar_reserva(query, tipo_servicio="Fotografía"),
-        description="Agenda el Set de Fotografía (COP $200,000 por 2h). Pide nombre, fecha (dd/mm/aaaa) y hora (hh:mm)."
-    )
-]
+        Tool(
+            name=f"Agendar {servicio}",
+            func=lambda query, tipo=servicio: agendar_reserva(query, tipo_servicio=tipo),
+            description=f"Agenda {info['descripcion']}. Pide nombre, fecha (dd/mm/aaaa o natural) y hora (hh:mm o natural)."
+        ) for servicio, info in SERVICIOS_CATALOGO.items()
+    ]
 
     llm = ChatOpenAI(model="gpt-4o", temperature=0.2)
     agente = initialize_agent(
@@ -32,14 +23,40 @@ def main():
         verbose=True
     )
 
-    print("👋 Bienvenido al chatbot de reservas Hermitage. Puedes agendar: Live Stream, Podcast o Fotografía. Escribe tu solicitud:")
+    print("👋 Bienvenido al chatbot de reservas Hermitage. Servicios disponibles:")
+    for s, info in SERVICIOS_CATALOGO.items():
+        print(f"  - {s}: {info['descripcion']}")
+    print("Escribe tu solicitud:")
+
     while True:
-        mensaje = input("Tú: ")
-        if mensaje.lower() in ['salir', 'exit', 'quit']:
-            print("¡Hasta pronto!")
-            break
-        respuesta = agente.run(mensaje)
-        print("🤖:", respuesta)
+    mensaje = input("Tú: ")
+    if mensaje.lower() in ['salir', 'exit', 'quit']:
+        print("¡Hasta pronto!")
+        break
+    if mensaje.lower() in ['admin', 'menu', 'reservas']:
+        menu_admin()
+        continue
+    respuesta = agente.run(mensaje)
+    print("🤖:", respuesta)
+
 
 if __name__ == "__main__":
     main()
+
+def menu_admin():
+    while True:
+        print("\n[Admin] Opciones:")
+        print("1. Listar reservas")
+        print("2. Cancelar reserva")
+        print("3. Volver")
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            from Hermitage.utils.herramientas_agenda import mostrar_reservas
+            mostrar_reservas()
+        elif opcion == "2":
+            from Hermitage.utils.herramientas_agenda import cancelar_reserva_cli
+            cancelar_reserva_cli()
+        elif opcion == "3":
+            break
+        else:
+            print("Opción inválida.")
