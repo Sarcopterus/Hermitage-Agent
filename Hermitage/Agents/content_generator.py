@@ -1,9 +1,8 @@
-from agents import Agent, function_tool
+from Hermitage.agents import Agent, function_tool
 from Hermitage.core.config import get_llm_instance
 llm = get_llm_instance()
 
 
-llm = get_llm_instance()
 
 @function_tool
 def generar_post_instagram(marca: str, producto: str) -> str:

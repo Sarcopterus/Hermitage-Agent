@@ -1,4 +1,4 @@
-from agents import Agent, function_tool
+from Hermitage.agents import Agent, function_tool
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain_core.runnables import RunnableLambda

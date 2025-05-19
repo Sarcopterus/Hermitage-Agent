@@ -1,5 +1,5 @@
-from agents import Agent
-from Hermitage.Agents.shared_tools.strategic_analysis_tools import (
+from Hermitage.agents import Agent, function_tool
+from Hermitage.agents.shared_tools.strategic_analysis_tools import (
     analizar_competencia,
     proponer_estrategia_crecimiento,
     crear_mision_vision,

@@ -3,7 +3,7 @@ Herramientas compartidas para análisis estratégico.
 Estas funciones son utilizadas tanto por el agente de estrategia como por el de análisis de datos.
 """
 
-from agents import function_tool
+from Hermitage.agents import Agent, function_tool
 from Hermitage.core.config import get_llm_instance
 
 llm = get_llm_instance()

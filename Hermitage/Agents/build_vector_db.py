@@ -1,13 +1,13 @@
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-# ✅ NUEVOS IMPORTS ACTUALIZADOS
 from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings, OpenAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 
 # Ruta a los documentos demo
 folder_path = "Hermitage/Data/demo_docs"
