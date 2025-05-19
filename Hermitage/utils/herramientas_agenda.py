@@ -1,6 +1,6 @@
 import re
 from datetime import datetime, timedelta
-from Hermitage.utils.agenda_db import disponible, reservar
+from Hermitage.agents.agenda_db import disponible, reservar
 
 
 def interpretar_fecha(texto):
