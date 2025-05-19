@@ -1,4 +1,4 @@
-from agents import Agent
+from Hermitage.agents import Agent
 from Hermitage.Agents.support_agent import agente_soporte
 from Hermitage.Agents.content_generator import agente_contenido
 from Hermitage.Agents.automatizer_agent import agente_automatizador
